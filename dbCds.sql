@@ -141,7 +141,7 @@ select * from tbCategorias order by codCat;
 
 
 insert into tbEstados(siglaEst,nomeEst)values('SP','São Paulo');
-insert into tbEstados(siglaEst,nomeEst)values('ES','Cachoeira do Itapemirim');
+insert into tbEstados(siglaEst,nomeEst)values('ES','Espirito Santo');
 insert into tbEstados(siglaEst,nomeEst)values('MG','Minas Gerais');
 insert into tbEstados(siglaEst,nomeEst)values('RJ','Rio de Janeiro');
 select * from tbEstados;
