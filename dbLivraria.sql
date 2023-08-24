@@ -54,6 +54,29 @@ foreign key(idLivro) references tbLivro(idLivro),
 foreign key(idAutor) references tbAutor(idAutor)
 );
 
+-- Insert tabela Genero
+
+insert into tbGenero(descricao)values('Ficção Científica');
+insert into tbGenero(descricao)values('Fantasia');
+insert into tbGenero(descricao)values('Romance');
+insert into tbGenero(descricao)values('Mistério');
+insert into tbGenero(descricao)values('Suspense');
+insert into tbGenero(descricao)values('Horror');
+insert into tbGenero(descricao)values('Aventura');
+insert into tbGenero(descricao)values('Histórico');
+insert into tbGenero(descricao)values('Realismo Social');
+insert into tbGenero(descricao)values('Poesia');
+update tbGenero set descricao = 'Humor' where idGenero = 1;
+update tbGenero set descricao = 'Drama' where idGenero = 2;
+update tbGenero set descricao = 'Biografia' where idGenero = 3;
+update tbGenero set descricao = 'Ensaio' where idGenero = 4;
+update tbGenero set descricao = 'Fábula' where idGenero = 5;
+delete from tbGenero where idGenero = 6;
+delete from tbGenero where idGenero = 7;
+delete from tbGenero where idGenero = 8;
+delete from tbGenero where idGenero = 9;
+delete from tbGenero where idGenero = 10;
+
 -- Insert tabela Autor
 
 insert into tbAutor(nome,email)values('William Shakespeare','shakespeare21@gmail.com');
@@ -76,29 +99,6 @@ delete from tbAutor where idAutor = 7;
 delete from tbAutor where idAutor = 8;
 delete from tbAutor where idAutor = 9;
 delete from tbAutor where idAutor = 10;
-
--- Insert tabela Generos
-
-insert into tbGenero(descricao)values('Ficção Científica');
-insert into tbGenero(descricao)values('Fantasia');
-insert into tbGenero(descricao)values('Romance');
-insert into tbGenero(descricao)values('Mistério');
-insert into tbGenero(descricao)values('Suspense');
-insert into tbGenero(descricao)values('Horror');
-insert into tbGenero(descricao)values('Aventura');
-insert into tbGenero(descricao)values('Histórico');
-insert into tbGenero(descricao)values('Realismo Social');
-insert into tbGenero(descricao)values('Poesia');
-update tbGenero set descricao = 'Humor' where idGenero = 1;
-update tbGenero set descricao = 'Drama' where idGenero = 2;
-update tbGenero set descricao = 'Biografia' where idGenero = 3;
-update tbGenero set descricao = 'Ensaio' where idGenero = 4;
-update tbGenero set descricao = 'Fábula' where idGenero = 5;
-delete from tbGenero where idGenero = 6;
-delete from tbGenero where idGenero = 7;
-delete from tbGenero where idGenero = 8;
-delete from tbGenero where idGenero = 9;
-delete from tbGenero where idGenero = 10;
 
 -- Insert tabela Cliente
 
@@ -214,14 +214,14 @@ delete from tbEscreve where idLivro = 7;
 delete from tbEscreve where idLivro = 8;
 delete from tbEscreve where idLivro = 9;
 delete from tbEscreve where idLivro = 10;
+ 
 
 
 
-
-select descricao as 'Generos' from tbGenero;
+select * from tbGenero order by descricao asc;
 select * from tbAutor;
 select * from tbCliente;
 select * from tbLivro;
-select * from tbVenda;
+select distinct idCliente, data as 'Data', total as 'Total' from tbVenda;
 select * from tbItensDaVenda;
 select * from tbEscreve;

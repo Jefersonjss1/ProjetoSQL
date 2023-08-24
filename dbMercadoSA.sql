@@ -96,3 +96,81 @@ select * from tbUsuarios;
 select * from tbFornecedores;
 select * from tbClientes;
 select * from tbFuncionarios;
+
+select
+ usu.nome as 'Nome do Usuário',
+fun.nome as 'Nome do Funcionário',
+fun.email as 'E-mail do Funcionário' 
+from tbUsuarios as usu
+ inner join tbFuncionarios as fun 
+ on usu.codFun = fun.codFun;
+
+select
+ forn.nome as 'Nome do Produtos',
+ forn.cnpj as 'CPNJ do Fornecedor',
+  prod.descricao as 'Descrição do Produto'
+   from tbProdutos as prod
+    inner join tbFornecedores as forn 
+    on prod.codFor = forn.codFor; 
+
+select 
+cli.nome as 'Nome do Cliente',
+cli.email as 'E-mail do Cliente',
+cli.telCel as 'Telefone do Cliente',
+vend.dataVenda as 'Data da Venda',
+vend.valorTotal as 'Valor da Venda' 
+from tbClientes as cli
+ inner join tbVendas as vend
+  on cli.codCli = vend.codCli;
+
+select cli.nome as 'Nome do Cliente',
+cli.email 'E-mail do Cliente',
+prod.descricao 'Descrição do Produto',
+vend.dataVenda 'Data da Venda'
+ from tbVendas as vend 
+ inner join tbClientes as cli
+ on vend.codCli = cli.codCli
+ inner join tbProdutos as prod
+ on vend.codPro = prod.codPro;
+
+ select usu.nome as 'Nome do Usuário',
+ func.nome as 'Nome do Funcionário',
+ vend.dataVenda as 'Data da Venda',
+ vend.quantidade as 'Quantidade da Venda', 								
+ vend.valorTotal as 'Valor Total da Venda'
+  from tbUsuarios as usu
+   inner join tbFuncionarios as func
+   on func.codFun = usu.codFun
+   inner join tbVendas as vend 
+   on vend.codUsu = usu.codUsu;
+
+
+select cli.nome as 'Nome do Cliente',
+vend.dataVenda as 'Data da Venda',
+prod.descricao as 'Descrição do Produto',
+forn.nome as 'Nome do Fornecedor' 
+from tbClientes	as cli
+inner join tbVendas	as vend
+on vend.codCli = cli.codCli
+inner join tbProdutos as prod
+on vend.codPro = prod.codPro
+inner join tbFornecedores as forn
+on prod.codFor = forn.codFor;
+
+select func.nome as 'Nome do Funcionário',
+usu.nome as 'Nome do Usuário',
+vend.dataVenda as 'Data da Venda',
+vend.valorTotal as 'Valor Total da Venda',
+prod.descricao as 'Descrição do Produto',
+prod.dataEntrada as 'Data da Entrada do Produto',
+forn.nome as 'Nome do Fornecedor',
+forn.cnpj as 'CPNJ do Fornecedor'
+from tbFuncionarios as func
+inner join tbUsuarios as usu
+on func.codFun = usu.codFun
+inner join tbVendas as vend
+on usu.codUsu = vend.codUsu
+inner join tbProdutos as prod
+on vend.codPro = prod.codPro 
+inner join tbFornecedores as forn
+on prod.codFor = forn.codFor;
