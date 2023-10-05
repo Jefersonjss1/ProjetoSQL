@@ -174,3 +174,13 @@ inner join tbProdutos as prod
 on vend.codPro = prod.codPro 
 inner join tbFornecedores as forn
 on prod.codFor = forn.codFor;
+
+select prod.descricao, prod.quantidade
+ from tbFuncionarios as func
+ left join tbProdutos as prod 
+ on func.codFun = prod.codPro;
+
+select prod.descricao, prod.quantidade
+ from tbFuncionarios as func
+ right join tbProdutos as prod 
+ on func.codFun = prod.codPro; 
